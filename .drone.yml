@@ -8,6 +8,17 @@ steps:
   environment:
     token:
       from_secret: bot_api
+    github_cert:
+      from_secret: github_cert
+    SF_PASS:
+      from_secret: sf_pass
+    DEVICE: miatoll_miui
+    RELEASE: false
+    CODENAME: PerfLer
+    TYPE: BLC
+    CHANGELOG: |
+      NOTES!!! A11 enforce only<br>• Merge tag LA.UM.9.1.r1-09100-SMxxx0.0<br>• Disable memory cgroups<br>• Disable msm_performance driver<br>• implement prlmk|thanks to darkhz<br>• another improvement<br>• Built use NusantaraDev clang|thanks to @Najahiii
   commands:
-  - wget https://raw.githubusercontent.com/Kry9toN/Scripts/master/kernel/CI/joyeuse/miui
-  - bash miui
+  - git clone https://github.com/Kry9toN-Project/Drone-CI
+  - mv Drone-CI/* .
+  - bash main.sh
